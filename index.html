@@ -1,162 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Joel Moyal – Software Engineer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-      :root {
-        --bg-color: #f9f9f9;
-        --text-color: #1c1c1e;
-        --card-bg: #ffffff;
-      }
-
-      body.dark-mode {
-        --bg-color: #1c1c1e;
-        --text-color: #f9f9f9;
-        --card-bg: #2c2c2e;
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: 'Inter', sans-serif;
-        background-color: var(--bg-color);
-        color: var(--text-color);
-        line-height: 1.6;
-        transition: background-color 0.3s ease, color 0.3s ease;
-      }
-
-      header {
-        padding: 2rem;
-        text-align: center;
-        background: var(--card-bg);
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-      }
-
-      header h1 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-      }
-
-      header p {
-        font-weight: 300;
-        font-size: 1.2rem;
-        color: #6e6e73;
-      }
-
-      .theme-toggle {
-        margin-top: 1rem;
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
-        background-color: transparent;
-        border: 1px solid #ccc;
-        border-radius: 9999px;
-        cursor: pointer;
-      }
-
-      section {
-        padding: 4rem 2rem;
-        max-width: 960px;
-        margin: auto;
-      }
-
-      .section-title {
-        font-size: 2rem;
-        margin-bottom: 2rem;
-        font-weight: 600;
-        text-align: center;
-      }
-
-      .projects, .about {
-        display: grid;
-        gap: 2rem;
-      }
-
-      .project-card {
-        background: var(--card-bg);
-        border-radius: 12px;
-        padding: 2rem;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        transition: transform 0.3s ease, background-color 0.3s ease;
-        opacity: 0;
-        transform: translateY(30px);
-      }
-
-      .project-card.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      footer {
-        text-align: center;
-        padding: 2rem;
-        background-color: var(--card-bg);
-        font-size: 0.9rem;
-        color: #6e6e73;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>Joel Moyal</h1>
-      <p>Software Engineer • Full-Stack Developer • UX Strategist</p>
-      <button class="theme-toggle" onclick="toggleTheme()">Toggle Dark Mode</button>
-    </header>
-
-    <section class="about">
-      <h2 class="section-title">About Me</h2>
-      <p>I’m a passionate software engineer based in California, originally from Germany. With a background in media design and startup development, I love creating impactful digital experiences. Whether it’s building full-stack platforms, refining UX, or working with new AI technologies—I thrive where creativity meets code.</p>
-    </section>
-
-    <section class="projects">
-      <h2 class="section-title">Featured Projects</h2>
-      <div class="project-card fade-in">
-        <h3>REWO</h3>
-        <p>A remote work platform helping digital nomads and freelancers find the best cafés to work from, featuring real-time reviews, carbon footprint tracking, and community tools.</p>
-      </div>
-      <div class="project-card fade-in">
-        <h3>TaskFlow</h3>
-        <p>A task management application with Kanban, calendar views, dark mode, and drag-and-drop support. Designed for productivity and team collaboration.</p>
-      </div>
-      <div class="project-card fade-in">
-        <h3>Swipeify</h3>
-        <p>A modern Spotify-inspired web app for discovering YouTube music via swipe gestures, leveraging Node.js, React, and Vite for a smooth UI/UX.</p>
-      </div>
-    </section>
-
-    <footer>
-      <p>© 2025 Joel Moyal. Built with clean code and curiosity.</p>
-    </footer>
-
-    <script>
-      function toggleTheme() {
-        document.body.classList.toggle('dark-mode');
-      }
-
-      const faders = document.querySelectorAll('.fade-in');
-      const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        });
-      }, {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px"
-      });
-
-      faders.forEach(fader => {
-        appearOnScroll.observe(fader);
-      });
-    </script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joel Moyal – Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #fff;
+      --text-color: #000;
+      --secondary-text: #6e6e73;
+      --card-bg: #f5f5f7;
+    }
+    body.dark-mode {
+      --bg-color: #000;
+      --text-color: #fff;
+      --secondary-text: #a1a1a6;
+      --card-bg: #1c1c1e;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'SF Pro Display', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    header { padding: 3rem 2rem; text-align: center; }
+    header h1 { font-size: 3rem; font-weight: 700; }
+    header p { font-weight: 400; font-size: 1.3rem; color: var(--secondary-text); margin-top: 0.5rem; }
+    .theme-toggle {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      background-color: transparent;
+      border: 1px solid var(--secondary-text);
+      border-radius: 9999px;
+      cursor: pointer;
+    }
+    section { padding: 5rem 2rem; max-width: 1000px; margin: auto; }
+    .section-title { font-size: 2.2rem; margin-bottom: 3rem; font-weight: 600; text-align: center; }
+    .projects, .about { display: grid; gap: 2.5rem; }
+    .project-card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 3rem;
+      text-align: center;
+      transition: transform 0.3s ease;
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    .project-card.visible { opacity: 1; transform: scale(1); }
+    .project-card h3 { font-size: 1.6rem; margin-bottom: 1rem; }
+    footer { text-align: center; padding: 2rem; color: var(--secondary-text); }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Joel Moyal</h1>
+  <p>Software Engineer | Full-Stack Developer | UX Strategist</p>
+  <button class="theme-toggle" onclick="toggleTheme()">Toggle Dark Mode</button>
+</header>
+<section class="about">
+  <h2 class="section-title">About Joel</h2>
+  <p>Joel Moyal is a software engineer based in California, originally from Germany. With a Fachabitur in media design and experience in software development, Joel specializes in full-stack engineering, UX strategy, and startup growth. His passion lies in creating intuitive digital solutions, exploring AI, and supporting initiatives like men's mental health advocacy.</p>
+</section>
+<section class="projects">
+  <h2 class="section-title">Selected Projects</h2>
+  <div class="project-card fade-in">
+    <h3>REWO</h3>
+    <p>A digital platform tailored for remote workers, integrating cafe reviews, community interactions, and environmental impact metrics.</p>
+  </div>
+  <div class="project-card fade-in">
+    <h3>TaskFlow</h3>
+    <p>An advanced task management tool featuring Kanban boards, calendar integrations, and user analytics designed for enhanced productivity.</p>
+  </div>
+  <div class="project-card fade-in">
+    <h3>Swipeify</h3>
+    <p>An engaging, swipe-based web app designed to help users discover new YouTube music effortlessly.</p>
+  </div>
+</section>
+<footer>
+  <p>© 2025 Joel Moyal. Passionately crafted with precision and creativity.</p>
+</footer>
+<script>
+  function toggleTheme() { document.body.classList.toggle('dark-mode'); }
+  const faders = document.querySelectorAll('.fade-in');
+  const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+  const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    });
+  }, appearOptions);
+  faders.forEach(fader => appearOnScroll.observe(fader));
+</script>
+</body>
 </html>
